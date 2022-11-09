@@ -20,6 +20,40 @@ public class roberts_WeightedGraph implements WeightedGraphFunctions {
 
     @Override
     public EdgeWithWeight[] getPath(int fromVertex, int toVertex) {
+        java.util.PriorityQueue<VertexWithWeight> minPriorityQueueByWeight = new java.util.PriorityQueue<>(vertices.size(), new VertexWithWeightWeightComparator());
+        VertexWithWeight[] verticeCost = new VertexWithWeight[vertices.size()];
+        int[] parent = new int[vertices.size()];
+
+        for (int i = 0; i < vertices.size(); i++) {
+            parent[i] = -1;
+            verticeCost[i] = new VertexWithWeight(vertices.get(i), Double.POSITIVE_INFINITY);
+        }
+        parent[vertices.get(fromVertex)] = fromVertex;
+        verticeCost[vertices.get(vertices.get(fromVertex))] = new VertexWithWeight(vertices.get(fromVertex), 0.0);
+
+        for (int i = 0; i < vertices.size(); i++) {
+            minPriorityQueueByWeight.add(verticeCost[i]);
+        }
+
+        while (minPriorityQueueByWeight.size() > 0) {
+            VertexWithWeight currentVertex = minPriorityQueueByWeight.poll();
+            int v = currentVertex.getVertex();
+            if (parent[v] == -1) {
+                break;
+            }
+            if (v == toVertex) {
+                break;
+            }
+
+            for (EdgeWithWeight currentEdge : edges) {
+                if(v == currentEdge.getFromVertex()) {
+                    if (currentVertex.getWeight() + currentEdge.getWeight() <  )
+                }
+            }
+        }
+
+
+
         return new EdgeWithWeight[0];
     }
 
