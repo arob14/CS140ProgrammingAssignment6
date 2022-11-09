@@ -8,7 +8,7 @@ class testWeightedGraph
 			System.exit(0);
 		}
 		
-		WeightedGraphFunctions g = new WeightedGraph();
+		WeightedGraphFunctions g = new roberts_WeightedGraph();
 		int fromVertex = Integer.parseInt(args[1]);
 		int toVertex = Integer.parseInt(args[2]);
 		

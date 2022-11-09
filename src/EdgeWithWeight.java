@@ -17,7 +17,7 @@ public class EdgeWithWeight implements EdgeWithWeightFunctions {
         return toVertex;
     }
     public double getWeight() {
-        return getWeight();
+        return weight;
     }
 
     public String toString() {

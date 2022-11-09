@@ -19,6 +19,16 @@ public class VertexWithWeight implements VertexWithWeightFunctions {
         weight = w;
     }
 
+    public boolean equals(Object o) {
+        boolean bool = false;
+        if(o instanceof VertexWithWeight) {
+            if ( ((VertexWithWeight) o).getVertex() == this.getVertex()) {
+                bool = true;
+            }
+        }
+        return bool;
+    }
+
     public String toString() {
         return "(" + vertex +
                 "," + weight + ')';
