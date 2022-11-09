@@ -47,7 +47,9 @@ public class roberts_WeightedGraph implements WeightedGraphFunctions {
 
             for (EdgeWithWeight currentEdge : edges) {
                 if(v == currentEdge.getFromVertex()) {
-                    if (currentVertex.getWeight() + currentEdge.getWeight() <  )
+                    if (currentVertex.getWeight() + currentEdge.getWeight() < currentEdge.getWeight()) {
+
+                    }
                 }
             }
         }
