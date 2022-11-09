@@ -9,6 +9,7 @@ public class roberts_WeightedGraph implements WeightedGraphFunctions {
 
 
     public boolean hasPath(int fromVertex, int toVertex) {
+        boolean bool = false;
         return false;
     }
 
@@ -17,7 +18,7 @@ public class roberts_WeightedGraph implements WeightedGraphFunctions {
         return 0;
     }
 
-
+    @Override
     public EdgeWithWeight[] getPath(int fromVertex, int toVertex) {
         return new EdgeWithWeight[0];
     }
@@ -40,5 +41,29 @@ public class roberts_WeightedGraph implements WeightedGraphFunctions {
             bool = true;
         }
         return bool;
+    }
+
+    public String toString() {
+        StringBuilder output = new StringBuilder("G=(V,E)\nV={");
+        for(int i = 0; i < vertices.size(); i++) {
+            if(i != vertices.size() - 1) {
+                output.append(vertices.get(i)).append(",");
+            }
+            else {
+                output.append(vertices.get(i));
+            }
+        }
+        output.append("}\nE={");
+        for(int i = 0; i < edges.size(); i++) {
+            if (i != edges.size() - 1) {
+                output.append(edges.get(i).toString()).append(",");
+            }
+            else {
+                output.append(edges.get(i).toString());
+            }
+            output.append("}");
+        }
+
+        return output.toString();
     }
 }
