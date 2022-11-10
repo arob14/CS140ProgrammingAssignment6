@@ -9,18 +9,17 @@ public class roberts_WeightedGraph implements WeightedGraphFunctions {
 
 
     public boolean hasPath(int fromVertex, int toVertex) {
-        boolean bool = false;
         return false;
     }
 
 
     public double getMinimumWeight(int fromVertex, int toVertex) {
-        return 0;
+        return Double.NaN;
     }
 
     @Override
     public EdgeWithWeight[] getPath(int fromVertex, int toVertex) {
-        java.util.PriorityQueue<VertexWithWeight> minPriorityQueueByWeight = new java.util.PriorityQueue<>(vertices.size(), new VertexWithWeightWeightComparator());
+        /*java.util.PriorityQueue<VertexWithWeight> minPriorityQueueByWeight = new java.util.PriorityQueue<>(vertices.size(), new VertexWithWeightWeightComparator());
         VertexWithWeight[] verticeCost = new VertexWithWeight[vertices.size()];
         int[] parent = new int[vertices.size()];
 
@@ -34,7 +33,6 @@ public class roberts_WeightedGraph implements WeightedGraphFunctions {
         for (int i = 0; i < vertices.size(); i++) {
             minPriorityQueueByWeight.add(verticeCost[i]);
         }
-
         while (minPriorityQueueByWeight.size() > 0) {
             VertexWithWeight currentVertex = minPriorityQueueByWeight.poll();
             int v = currentVertex.getVertex();
@@ -52,7 +50,8 @@ public class roberts_WeightedGraph implements WeightedGraphFunctions {
                     }
                 }
             }
-        }
+        }*/
+
 
 
 
@@ -97,8 +96,8 @@ public class roberts_WeightedGraph implements WeightedGraphFunctions {
             else {
                 output.append(edges.get(i).toString());
             }
-            output.append("}");
         }
+        output.append("}");
 
         return output.toString();
     }
