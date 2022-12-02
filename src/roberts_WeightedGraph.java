@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class roberts_WeightedGraph implements WeightedGraphFunctions {
     private final ArrayList<EdgeWithWeight> edges;
-    private final ArrayList<Integer> vertices;c
+    private final ArrayList<Integer> vertices;
 
     public roberts_WeightedGraph() {
         edges = new ArrayList<>();
@@ -27,9 +27,11 @@ public class roberts_WeightedGraph implements WeightedGraphFunctions {
     	}
     	return output;
     }
+    public EdgeWithWeight[] getPath(int fromVertex, int toVertex) {
+        return new EdgeWithWeight[0];
+    }
 
-    @Override
-    private EdgeWithWeight[] getPath(int fromVertex, int toVertex) {
+    private Object getPath(int fromVertex, int toVertex, WeightedGraphReturnType typeOfInfo) {
         java.util.PriorityQueue<VertexWithWeight> minPriorityQueueByWeight = new java.util.PriorityQueue<>(vertices.size(), new VertexWithWeightWeightComparator());
         VertexWithWeight[] verticeCost = new VertexWithWeight[vertices.size()];
         int[] parent = new int[vertices.size()];
@@ -65,18 +67,23 @@ public class roberts_WeightedGraph implements WeightedGraphFunctions {
                     }
                 }
             }
-            int p = toVertex;
+        }
+        int p = toVertex;
+        reversePath.add(p);
+        while (p != fromVertex) {
+            p = parent[indexOf(p)];
             reversePath.add(p);
-            while (p != fromVertex) {
-            	p = parent[indexOf(p)];
-            	reversePath.add(p);
-            }
-            
-            for(int i = reversePath.size(); i >=0; i--) {
-            	forwardPath.add(reversePath.get(i));
-            }
-            
-            return
+        }
+
+        for(int i = reversePath.size(); i >=0; i--) {
+            forwardPath.add(reversePath.get(i));
+        }
+
+        if (typeOfInfo == WeightedGraphReturnType.GET_PATH) {
+            return ((Object) forwardPath);
+        }
+        if (typeOfInfo == WeightedGraphReturnType.GET_MINIMUM_WEIGHT) {
+            return ((Object) );
         }
 
 
